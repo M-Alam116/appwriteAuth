@@ -46,6 +46,7 @@ const Login = ({navigation}: LoginScreenProps) => {
               text: 'Login Success',
               duration: Snackbar.LENGTH_SHORT,
             });
+            navigation.navigate('Home');
           }
         })
         .catch(e => {

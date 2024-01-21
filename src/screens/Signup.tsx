@@ -9,8 +9,6 @@ import {
 } from 'react-native';
 import React, {useContext, useState} from 'react';
 
-//react native elements
-import {FAB} from '@rneui/themed';
 //Snackbar
 import Snackbar from 'react-native-snackbar';
 
@@ -57,6 +55,7 @@ const Signup = ({navigation}: SignupScreenProps) => {
               text: 'Signup success',
               duration: Snackbar.LENGTH_SHORT,
             });
+            navigation.navigate('Login');
           }
         })
         .catch(e => {

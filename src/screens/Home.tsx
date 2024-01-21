@@ -8,12 +8,17 @@ import Snackbar from 'react-native-snackbar';
 //context API
 import {AppwriteContext} from '../appwrite/AppwriteContext';
 
+import {AuthStackParamList} from '../routes/AuthStack';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
+type HomeScreenProps = NativeStackScreenProps<AuthStackParamList, 'Home'>;
+
 type UserObj = {
   name: String;
   email: String;
 };
 
-const Home = () => {
+const Home = ({navigation}: HomeScreenProps) => {
   const [userData, setUserData] = useState<UserObj>();
   const {appwrite, setIsLoggedIn} = useContext(AppwriteContext);
 
@@ -24,6 +29,7 @@ const Home = () => {
         text: 'Logout Successful',
         duration: Snackbar.LENGTH_SHORT,
       });
+      navigation.navigate('Login');
     });
   };
 
